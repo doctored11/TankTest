@@ -1,7 +1,18 @@
 const gameField = document.getElementById('field');
 const context = gameField.getContext('2d');
+
 const player = new Image();
 player.src = 'media/tank.png';
+
+const en1 = new Image();
+const en2 = new Image();
+const en3 = new Image();
+en2.src = 'media/en2.png';
+en1.src = 'media/en1.png';
+en3.src = 'media/en3.png';
+const vzrv = new Image();
+vzrv.src = 'media/vzrv.png';
+
 player.width = 60;
 player.height = 50;
 
@@ -66,7 +77,9 @@ function drawTick() {
   sCount.textContent = 'Score: ' + score;
 
   context.clearRect(0, 0, gameField.width, gameField.height);
+  // player.onload = function () {
   context.drawImage(player, playerPosX, playerY, player.width, player.height);
+  // };
 
   bullUpdate();
   enUpdate();
@@ -172,14 +185,7 @@ function shot(y) {
 
 // enemy
 let maxEnCount = 5;
-const en1 = new Image();
-const en2 = new Image();
-const en3 = new Image();
-en2.src = 'media/en2.png';
-en1.src = 'media/en1.png';
-en3.src = 'media/en3.png';
-const vzrv = new Image();
-vzrv.src = 'media/vzrv.png';
+
 vzrv.width = 20;
 vzrv.height = 20;
 en1.width = 60;
