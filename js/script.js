@@ -1,18 +1,36 @@
 const gameField = document.getElementById('field');
 const context = gameField.getContext('2d');
+let loaded = 0;
 
 const player = new Image();
-player.src = 'media/tank.png';
 
 const vzrv = new Image();
 const en1 = new Image();
 const en2 = new Image();
 const en3 = new Image();
 
+en1.onload = function () {
+  loaded++;
+  console.log(loaded);
+};
+en2.onload = function () {
+  loaded++;
+  console.log(loaded);
+};
 en3.onload = function () {
-  alert('-_-');
+  loaded++;
+  console.log(loaded);
+};
+vzrv.onload = function () {
+  loaded++;
+  console.log(loaded);
+};
+player.onload = function () {
+  loaded++;
+  console.log(loaded);
 };
 
+player.src = 'media/tank.png';
 en2.src = 'media/en2.png';
 en1.src = 'media/en1.png';
 en3.src = 'media/en3.png';
@@ -66,6 +84,7 @@ bufwidth = player.width;
 cadrNum = 0;
 
 function drawTick() {
+  if (loaded < 5) return;
   cadrNum++;
   if (cadrNum % 15 == 0) player.width = bufwidth;
   if (score > 1000) {
