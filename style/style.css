@@ -1,7 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: consolas;
+  /* border: 2px solid rgba(255, 131, 131, 0.7); */
+}
+html {
+  background-color: rgb(2, 0, 36);
+}
+.score-counter,
+.health-counter {
+  color: rgb(201, 213, 209);
+}
 body {
-  background-color: red;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(2, 0, 36);
+  background: linear-gradient(
+    142deg,
+    rgba(2, 0, 36, 1) 25%,
+    /* rgba(43, 2, 2, 1) 51%,
+    rgba(20, 20, 20, 1) 82%, */ rgba(31, 72, 80, 1) 100%
+  );
+  display: flex;
+  height: 100%;
 }
 
 .game-field {
   background-color: green;
+  border: 10px red solid;
+  margin: 5px;
+}
+
+.game-block {
+  width: 100%;
+  display: flex;
+}
+
+.blockField {
+  background-color: rgba(93, 93, 93, 0.27);
+  z-index: 5;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px rgba(212, 115, 41, 0.814) solid;
+  transform: scale(103.34%);
+
+  margin: 15px;
+
+  top: 0;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  padding: 8px 15px;
+  margin: 8px 4px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #282828, #202020); /*линейный градиент*/
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+    /*тень*/ inset 0 -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75),
+    10px 20px 25px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border: 2px rgb(152, 152, 152) solid;
+}
+.button:active {
+  border-top: #282828 3px solid;
+  border-left: #282828 3px solid;
+  border-bottom: rgb(222, 222, 222) 1.5px solid;
+  border-right: rgb(222, 222, 222) 1.5px solid;
+  transform: translateY(-5px);
+}
+.button .button__ico {
+  position: relative; /*относительное позиционирование*/
+  color: rgb(152, 152, 152); /*цвет текста*/
+  font-style: normal;
+  font-size: 1.5em; /*размер шрифта*/
+  text-transform: uppercase; /*заглавные буквы*/
+}
+
+.second-part {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.txt {
+  color: rgb(219, 217, 217);
+}
+.control-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blockField--win {
+  background-color: rgba(255, 255, 0, 0.566);
+}
+
+.restart-btn {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+
+  display: flex;
+
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-color: #f1c40f;
+  color: #fff;
+  background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+}
+
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+  .game-block {
+    justify-content: center;
+  }
+  .game-part {
+    padding-top: 5%;
+    margin-bottom: 20%;
+  }
+  .blockField {
+    margin: 7%;
+  }
+  .game-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .score-counter {
+    margin-top: 5%;
+    margin-bottom: 1%;
+  }
+  .health-counter {
+    margin: 0;
+  }
 }

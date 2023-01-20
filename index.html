@@ -8,7 +8,28 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <canvas id="field" width="600" height="600" class="game-field"></canvas>
+    <div class="game-part">
+      <div class="game-block">
+        <canvas id="field" width="600" height="600" class="game-field"></canvas>
+      </div>
+
+      <h2 class="score-counter">Score:</h2>
+      <h3 class="health-counter">Health:</h3>
+    </div>
+
+    <div class="second-part">
+      <div class="control-block">
+        <p class="txt">управение танком на стрелочки 'вверх' и 'вниз' ↷</p>
+        <div class="buttons">
+          <button id="up" class="button"><span class="button__ico">ᐃ</span></button>
+          <button id="down" class="button"><span class="button__ico">ᐁ</span></button>
+        </div>
+      </div>
+    </div>
+
     <script src="js/script.js"></script>
   </body>
+  <audio data-key="enDeth" preload="auto " src="./media/enDamage.wav"></audio>
+  <audio data-key="plDamge" preload="auto " src="./media/plDamge.wav"></audio>
+  <audio data-key="shot" preload="auto " src="./media/shot.mp3"></audio>
 </html>
