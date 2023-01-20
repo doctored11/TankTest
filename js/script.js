@@ -4,13 +4,19 @@ const context = gameField.getContext('2d');
 const player = new Image();
 player.src = 'media/tank.png';
 
+const vzrv = new Image();
 const en1 = new Image();
 const en2 = new Image();
 const en3 = new Image();
+
+en3.onload = function () {
+  alert('-_-');
+};
+
 en2.src = 'media/en2.png';
 en1.src = 'media/en1.png';
 en3.src = 'media/en3.png';
-const vzrv = new Image();
+
 vzrv.src = 'media/vzrv.png';
 
 player.width = 60;
