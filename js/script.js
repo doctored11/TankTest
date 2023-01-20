@@ -30,12 +30,12 @@ player.onload = function () {
   console.log(loaded);
 };
 
-player.src = 'media/tank.png';
 en2.src = 'media/en2.png';
 en1.src = 'media/en1.png';
 en3.src = 'media/en3.png';
 
 vzrv.src = 'media/vzrv.png';
+player.src = 'media/tank.png';
 
 player.width = 60;
 player.height = 50;
@@ -118,6 +118,7 @@ let gameTick = setInterval(drawTick, 1);
 let bullShot =
   setInterval(() => {
     // console.log('bullShot Y=', playerY);
+    if (loaded < 5) return;
     playSound('shot');
     shot(playerY);
   }, damageSpeed - (score / 50) ** 2) + 5;
