@@ -115,13 +115,25 @@ function drawTick() {
 //
 
 let gameTick = setInterval(drawTick, 1);
-let bullShot =
-  setInterval(() => {
-    // console.log('bullShot Y=', playerY);
+// let bullShot = setInterval(() => {
+//   // console.log('bullShot Y=', playerY);
+//   if (loaded < 5) return;
+//   playSound('shot');
+//   shot(playerY);
+// }, damageSpeed - score);
+//  damageSpeed - (score / 50) ** 2 + 5)
+let cd = damageSpeed;
+let bullShot = setTimeout(function run() {
+  cd = damageSpeed - (score / 40) ** 2 + 5;
+  if (cd < 20) cd = 40;
+  // func(i);
+  setTimeout(() => {
     if (loaded < 5) return;
     playSound('shot');
     shot(playerY);
-  }, damageSpeed - (score / 50) ** 2) + 5;
+    run();
+  }, cd);
+}, 30);
 
 function endGameCheck() {
   if (document.querySelector('.restart-btn')) return true;
@@ -269,7 +281,7 @@ function enUpdate() {
 
   for (let i = 0; i < enArr.length; ++i) {
     // console.log(bullArr[i]);
-    enArr[i][0] += enArr[i][3].speed;
+    enArr[i][0] += enArr[i][3].speed + score / 5000;
     // console.log(bullArr[i][0], gameField.width);
     if (enArr[i][0] > 1.2 * gameField.width) {
       console.log('remove');
